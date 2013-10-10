@@ -19,6 +19,7 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 		$scope.position.y += 1;
 	}
 
+	console.log($scope.position);
 	angularFire(ref, $scope, "position");
 };
 
