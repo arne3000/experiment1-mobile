@@ -1,0 +1,8 @@
+/* CSS crunched with Crunch - http://crunchapp.net/ */
+html,body,#outer_wrap,#main_view{background-color:#EDEDED;height:100%;width:100%}
+#btn_wrapper{width:90%;height:90%;position:relative;left:5%;top:5%}#btn_wrapper .pos{position:absolute}#btn_wrapper .pos.left,#btn_wrapper .pos.right{margin-top:-15px}
+#btn_wrapper .pos.up,#btn_wrapper .pos.down{margin-left:-20px}
+#btn_wrapper .up{top:0;left:50%;right:50%}
+#btn_wrapper .down{bottom:0;left:50%;right:50%}
+#btn_wrapper .left{left:0;top:50%;bottom:50%}
+#btn_wrapper .right{right:0;top:50%;bottom:50%}
