@@ -21,8 +21,14 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 	//for now just allow anons to access data
 	auth.login('anonymous');
 
-	$scope.position = angularFireCollection(ref);
-
+	var currentPos = angularFireCollection(ref);
+	if (currentPos == null) {
+		$scope.position = {'x':0,'y':0};
+	} else {
+		$scope.position = angularFireCollection(ref);
+	}
+	
+	$scope.login = auth.login('anonymous');
 	$scope.moveleft = function() {
 		$scope.position.x -= 1;
 	}
@@ -38,12 +44,11 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 
 	cout($scope.position);
 
-	//console.log($scope.position);
 	angularFire(ref, $scope, "position");
 };
 
 
-var notifQ = [];
+var notifQ = new Array();
 
 function cout(text) {
 	notifQ.push(text);
@@ -53,4 +58,4 @@ document.addEventListener('deviceready', function() {
 	for (var i = 0; i < notifQ.length; i++) {
 		navigator.notification.alert(notifQ[i], function(){}, 'alert', 'Close');
 	}
-});
+}, false);
