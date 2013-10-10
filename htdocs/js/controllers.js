@@ -2,7 +2,7 @@
 	CONTROLLERS
 ************************/
 function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
-	var ref = new Firebase("https://exp1.firebaseio.com/list");
+	var ref = new Firebase("https://experiment1.firebaseio.com/player");
 
 	$scope.position = angularFireCollection(ref);
 
