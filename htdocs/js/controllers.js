@@ -14,6 +14,7 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 			cout('User ID: ' + user.id + ', Provider: ' + user.provider);
 		} else {
 			// user is logged out
+			cout('logged out');
 		}
 	});
 
@@ -35,6 +36,8 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 		$scope.position.y += 1;
 	}
 
+	cout($scope.position);
+	
 	//console.log($scope.position);
 	angularFire(ref, $scope, "position");
 };
