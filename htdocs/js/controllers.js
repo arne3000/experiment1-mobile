@@ -28,7 +28,7 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 		$scope.position = angularFireCollection(ref);
 	}
 	
-	$scope.login = auth.login('anonymous');
+	$scope.login = function() { auth.login('anonymous'); }
 	$scope.moveleft = function() {
 		$scope.position.x -= 1;
 	}
