@@ -8,10 +8,10 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 	var auth = new FirebaseSimpleLogin(ref, function(error, user) {
 		if (error) {
 			// an error occurred while attempting login
-			console.log(error);
+			cout(error);
 		} else if (user) {
 			// user authenticated with Firebase
-			console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+			cout('User ID: ' + user.id + ', Provider: ' + user.provider);
 		} else {
 			// user is logged out
 		}
@@ -35,7 +35,12 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 		$scope.position.y += 1;
 	}
 
-	console.log($scope.position);
+	//console.log($scope.position);
 	angularFire(ref, $scope, "position");
 };
 
+
+
+function cout(text) {
+	navigator.notification.alert(text, function(){}, 'alert', 'Close');
+}
