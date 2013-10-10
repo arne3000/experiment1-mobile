@@ -37,13 +37,20 @@ function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 	}
 
 	cout($scope.position);
-	
+
 	//console.log($scope.position);
 	angularFire(ref, $scope, "position");
 };
 
 
+var notifQ = [];
 
 function cout(text) {
-	navigator.notification.alert(text, function(){}, 'alert', 'Close');
+	notifQ.push(text);
 }
+
+document.addEventListener('deviceready', function() {
+	for (var i = 0; i < notifQ.length; i++) {
+		navigator.notification.alert(notifQ[i], function(){}, 'alert', 'Close');
+	}
+});
