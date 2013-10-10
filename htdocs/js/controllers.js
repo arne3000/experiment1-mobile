@@ -4,6 +4,22 @@
 function Main_Controller($scope, $timeout, angularFire, angularFireCollection) {
 	var ref = new Firebase("https://experiment1.firebaseio.com/player");
 
+	//login
+	var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+		if (error) {
+			// an error occurred while attempting login
+			console.log(error);
+		} else if (user) {
+			// user authenticated with Firebase
+			console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+		} else {
+			// user is logged out
+		}
+	});
+
+	//for now just allow anons to access data
+	auth.login('anonymous');
+
 	$scope.position = angularFireCollection(ref);
 
 	$scope.moveleft = function() {
